@@ -17,7 +17,7 @@ function App() {
   const [textOnScreen, setTextOnScreen] = useState('');
   const [isVisibleStart, setIsVisibleStart] = useState('visible');
   const [highscoreList, setHighscoreList] = useState([]);
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('Anon');
   const [isVisible, setIsVisible] = useState('hidden');
   const [alertSeverity, setAlertSeverity] = useState('');
   const [sortedList, setSortedList] = useState([]);
@@ -55,7 +55,7 @@ function App() {
       setQuoteOnScreen(data.message);
       setRightQuess('trump');
     } catch (error) {
-      
+
     }
   }
 
@@ -166,13 +166,13 @@ function App() {
   return (
     <div className="App">
       <Typography variant='h2'>Who said this?</Typography>
-      <h1>Points {points}</h1>
-        <h1>Tries {tries}</h1>
+      <Typography variant='h5'>Points {points}</Typography>
+        <Typography style={{marginBottom:'-40px'}} variant='h5'>Tries {tries}</Typography>
       <Button size="large" variant='contained' color="primary" style={{ visibility: isVisibleStart }} onClick={getTheQuotes}>Start the game</Button>
       <Typography variant='h5' style={{visibility: isVisibleStart}}>If game doesn't load just keep pressing the button :D </Typography>
       <div style={{ visibility: isVisible }}>
-        <Paper color='primary' style={{ height: '600px', backgroundColor: 'khaki', alignItems: 'center', justifyContent: 'center', marginLeft: '10px', marginRight: '10px' }}>
-          <h1>{quoteOnScreen}</h1>
+        <Paper color='primary' style={{ height: '200px', backgroundColor: 'khaki', alignItems: 'center', justifyContent: 'center', marginLeft: '10px', marginRight: '10px' }}>
+          <Typography variant='h5'>{quoteOnScreen}</Typography>
         </Paper>
         <Alert severity={alertSeverity}>{textOnScreen}</Alert>
 
