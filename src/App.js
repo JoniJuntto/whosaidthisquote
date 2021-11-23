@@ -40,10 +40,10 @@ function App() {
       const response = await fetch(url);
       var data = await response.json();
       setQuoteOnScreen(data.quote);
-      console.log(data.quote);
+
       setRightQuess('kanye');
     } catch (error) {
-      console.log(error);
+
     }
   }
 
@@ -55,7 +55,7 @@ function App() {
       setQuoteOnScreen(data.message);
       setRightQuess('trump');
     } catch (error) {
-      console.log(error);
+      
     }
   }
 
@@ -75,7 +75,7 @@ function App() {
 
   const getTheQuotes = () => {
     const randomNumber = Math.floor(Math.random() * 3);
-    console.log(randomNumber)
+
     switch (randomNumber) {
       case 0: getKanye();
         break;
@@ -91,7 +91,7 @@ function App() {
   };
 
   const choose = (who) => {
-    console.log(who + " " + rightQuess);
+
     if (who === rightQuess) {
       setPoints(points + 1);
       setTries(tries + 1);
@@ -116,7 +116,7 @@ function App() {
       score: points
     });
     window.location.reload(false)
-    console.log(docRef)
+    alert(`high-score submitted by username ${username}!`)
   }
 
   
@@ -169,6 +169,7 @@ function App() {
       <h1>Points {points}</h1>
         <h1>Tries {tries}</h1>
       <Button size="large" variant='contained' color="primary" style={{ visibility: isVisibleStart }} onClick={getTheQuotes}>Start the game</Button>
+      <Typography variant='h5' style={{visibility: isVisibleStart}}>If game doesn't load just keep pressing the button :D </Typography>
       <div style={{ visibility: isVisible }}>
         <Paper color='primary' style={{ height: '600px', backgroundColor: 'khaki', alignItems: 'center', justifyContent: 'center', marginLeft: '10px', marginRight: '10px' }}>
           <h1>{quoteOnScreen}</h1>
