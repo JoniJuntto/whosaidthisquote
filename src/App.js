@@ -13,7 +13,7 @@ function App() {
   const [quoteOnScreen, setQuoteOnScreen] = useState('');
   const [rightQuess, setRightQuess] = useState('');
   const [points, setPoints] = useState(0);
-  const [tries, setTries] = useState(0);
+  const [tries, setTries] = useState(30);
   const [textOnScreen, setTextOnScreen] = useState('');
   const [isVisibleStart, setIsVisibleStart] = useState('visible');
   const [highscoreList, setHighscoreList] = useState([]);
@@ -94,12 +94,12 @@ function App() {
 
     if (who === rightQuess) {
       setPoints(points + 1);
-      setTries(tries + 1);
+      setTries(tries - 1);
       setTextOnScreen("Correct answer");
       setAlertSeverity('success')
       getTheQuotes();
     } else {
-      setTries(tries + 1);
+      setTries(tries - 1);
       setTextOnScreen("Wrong answer");
       setAlertSeverity('error')
       getTheQuotes();
@@ -126,7 +126,7 @@ function App() {
   }
 
 
-  if (tries >= 30) {
+  if (tries === 0) {
     return (
       <div className='App'>
         <Typography variant='h2'>Game over</Typography>
