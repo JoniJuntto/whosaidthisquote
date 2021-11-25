@@ -145,6 +145,7 @@ function App() {
         value={username} 
         variant='outlined' 
         onChange={handleUsernameChange} 
+        inputProps={{maxLength :20}}
         />
         <p></p>
         <Button  size="large" variant='contained' color="primary" onClick={tryAgain}>Try again</Button>
